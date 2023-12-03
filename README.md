@@ -1,4 +1,4 @@
-# optimized_interactive_sierpinski_gasket
+# Optimized interactive sierpinski gasket
 Sierpinski Gasket generated from random.randint
 
 https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle
