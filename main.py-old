@@ -1,0 +1,37 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+def sierpinski_gasket(iterations):
+    # Vertices of the initial triangle
+    vertices = np.array([[0, 0], [1, 0], [0.5, np.sqrt(3)/2]])
+
+    # Starting point
+    point = np.array([0.5, np.sqrt(3)/4])
+
+    # Store points in the Sierpinski Gasket
+    points = [point]
+
+    for _ in range(iterations):
+        # Choose a random vertex
+        vertex = vertices[np.random.randint(0, 3)]
+
+        # Move halfway from the current point to the chosen vertex
+        point = (point + vertex) / 2
+
+        # Add the new point to the list
+        points.append(point)
+
+    return np.array(points)
+
+# Generate the Sierpinski Gasket with a specified number of iterations
+iterations = 10000
+points = sierpinski_gasket(iterations)
+
+# Plot the Sierpinski Gasket
+plt.figure(figsize=(8, 8))
+plt.scatter(points[:, 0], points[:, 1], s=0.1)
+plt.gca().set_aspect('equal', adjustable='box')
+plt.title(f"Sierpinski Gasket with {iterations} Iterations")
+plt.axis('off')
+plt.show()
+
